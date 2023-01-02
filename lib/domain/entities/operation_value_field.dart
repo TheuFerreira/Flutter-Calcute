@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_calculadora_rosa/value_field.dart';
+import 'package:flutter_calculadora_rosa/domain/entities/value_field.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_calculadora_rosa/app/pages/default/default_page.dart';
 

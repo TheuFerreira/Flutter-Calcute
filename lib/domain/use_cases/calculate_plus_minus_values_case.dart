@@ -1,6 +1,6 @@
 import 'package:flutter_calculadora_rosa/app/pages/default/default_page.dart';
-import 'package:flutter_calculadora_rosa/operation_value_field.dart';
-import 'package:flutter_calculadora_rosa/value_field.dart';
+import 'package:flutter_calculadora_rosa/domain/entities/operation_value_field.dart';
+import 'package:flutter_calculadora_rosa/domain/entities/value_field.dart';
 
 abstract class CalculatePlusMinusValuesCase {
   double call(List<ValueFieldBase> valueFields, double value);
@@ -14,13 +14,10 @@ class CalculatePlusMinusValuesCaseImpl implements CalculatePlusMinusValuesCase {
       final operation = valueFields[i - 1] as OperationValueField;
       final number = valueFields[i];
 
-      switch (operation.type) {
-        case OperationsType.plus:
-          value += double.parse(number.value);
-          break;
-        case OperationsType.minus:
-          value -= double.parse(number.value);
-          break;
+      if (operation.type == OperationsType.plus) {
+        value += double.parse(number.value);
+      } else {
+        value -= double.parse(number.value);
       }
 
       i += 2;

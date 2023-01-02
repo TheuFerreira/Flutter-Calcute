@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_calculadora_rosa/app/pages/default/components/action_button_component.dart';
 import 'package:flutter_calculadora_rosa/app/pages/default/default_controller.dart';
-import 'package:flutter_calculadora_rosa/number_value_field.dart';
+import 'package:flutter_calculadora_rosa/app/utils/default_icons.dart';
+import 'package:flutter_calculadora_rosa/domain/entities/number_value_field.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -111,9 +112,9 @@ class _DefaultPageState extends State<DefaultPage> {
                           onTap: (value, type) {},
                         ),
                         ActionButtonComponent(
-                          icon: FontAwesomeIcons.divide,
+                          icon: divideIcon,
                           type: ButtonType.operation,
-                          result: null,
+                          result: OperationsType.divide,
                           onTap: controller.onTapButton,
                         ),
                       ],
@@ -142,9 +143,9 @@ class _DefaultPageState extends State<DefaultPage> {
                           onTap: controller.onTapButton,
                         ),
                         ActionButtonComponent(
-                          icon: FontAwesomeIcons.xmark,
+                          icon: multiplyIcon,
                           type: ButtonType.operation,
-                          result: null,
+                          result: OperationsType.multiply,
                           onTap: controller.onTapButton,
                         ),
                       ],
@@ -173,7 +174,7 @@ class _DefaultPageState extends State<DefaultPage> {
                           onTap: controller.onTapButton,
                         ),
                         ActionButtonComponent(
-                          icon: FontAwesomeIcons.minus,
+                          icon: minusIcon,
                           type: ButtonType.operation,
                           result: OperationsType.minus,
                           onTap: controller.onTapButton,
@@ -204,7 +205,7 @@ class _DefaultPageState extends State<DefaultPage> {
                           onTap: controller.onTapButton,
                         ),
                         ActionButtonComponent(
-                          icon: FontAwesomeIcons.plus,
+                          icon: plusIcon,
                           type: ButtonType.operation,
                           result: OperationsType.plus,
                           onTap: controller.onTapButton,
@@ -258,4 +259,6 @@ enum ButtonType { number, comma, operation, clear, delete, finish }
 enum OperationsType {
   plus,
   minus,
+  multiply,
+  divide,
 }

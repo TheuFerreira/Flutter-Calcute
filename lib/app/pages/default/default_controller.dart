@@ -1,9 +1,9 @@
 import 'package:flutter_calculadora_rosa/app/pages/default/default_page.dart';
+import 'package:flutter_calculadora_rosa/app/utils/default_icons.dart';
+import 'package:flutter_calculadora_rosa/domain/entities/number_value_field.dart';
+import 'package:flutter_calculadora_rosa/domain/entities/operation_value_field.dart';
+import 'package:flutter_calculadora_rosa/domain/entities/value_field.dart';
 import 'package:flutter_calculadora_rosa/domain/use_cases/calculate_plus_minus_values_case.dart';
-import 'package:flutter_calculadora_rosa/number_value_field.dart';
-import 'package:flutter_calculadora_rosa/operation_value_field.dart';
-import 'package:flutter_calculadora_rosa/value_field.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobx/mobx.dart';
 
 part 'default_controller.g.dart';
@@ -97,10 +97,16 @@ abstract class DefaultControllerBase with Store {
     operationField.updateType(value);
     switch (value) {
       case OperationsType.plus:
-        operationField.updateIcon(FontAwesomeIcons.plus);
+        operationField.updateIcon(plusIcon);
         break;
       case OperationsType.minus:
-        operationField.updateIcon(FontAwesomeIcons.minus);
+        operationField.updateIcon(minusIcon);
+        break;
+      case OperationsType.multiply:
+        operationField.updateIcon(multiplyIcon);
+        break;
+      case OperationsType.divide:
+        operationField.updateIcon(divideIcon);
         break;
     }
   }
@@ -109,14 +115,28 @@ abstract class DefaultControllerBase with Store {
     switch (value) {
       case OperationsType.plus:
         final valueField = OperationValueField(
-          icon: FontAwesomeIcons.plus,
+          icon: plusIcon,
           type: value,
         );
         valueFields.add(valueField);
         break;
       case OperationsType.minus:
         final valueField = OperationValueField(
-          icon: FontAwesomeIcons.minus,
+          icon: minusIcon,
+          type: value,
+        );
+        valueFields.add(valueField);
+        break;
+      case OperationsType.multiply:
+        final valueField = OperationValueField(
+          icon: multiplyIcon,
+          type: value,
+        );
+        valueFields.add(valueField);
+        break;
+      case OperationsType.divide:
+        final valueField = OperationValueField(
+          icon: divideIcon,
           type: value,
         );
         valueFields.add(valueField);
