@@ -3,6 +3,7 @@ import 'package:flutter_calculadora_rosa/app/utils/default_icons.dart';
 import 'package:flutter_calculadora_rosa/domain/entities/number_value_field.dart';
 import 'package:flutter_calculadora_rosa/domain/entities/operation_value_field.dart';
 import 'package:flutter_calculadora_rosa/domain/entities/value_field.dart';
+import 'package:flutter_calculadora_rosa/domain/use_cases/calculate_multiply_divide_values.dart';
 import 'package:flutter_calculadora_rosa/domain/use_cases/calculate_plus_minus_values_case.dart';
 import 'package:mobx/mobx.dart';
 
@@ -38,7 +39,7 @@ abstract class DefaultControllerBase with Store {
 
   _processNumber(num value, ButtonType type) {
     if (valueFields.isEmpty) {
-      final valueField = NumberValueField(value: value, type: type);
+      final valueField = NumberValueField(value: value);
       valueFields.add(valueField);
       return;
     }
@@ -53,13 +54,13 @@ abstract class DefaultControllerBase with Store {
       return;
     }
 
-    final valueField = NumberValueField(value: value, type: type);
+    final valueField = NumberValueField(value: value);
     valueFields.add(valueField);
   }
 
   _processComma(String value, ButtonType type) {
     if (valueFields.isEmpty) {
-      final valueField = NumberValueField(value: '0.', type: type);
+      final valueField = NumberValueField(value: '0.');
       valueFields.add(valueField);
       return;
     }
@@ -74,14 +75,14 @@ abstract class DefaultControllerBase with Store {
     }
 
     if (type != ButtonType.number) {
-      final valueField = NumberValueField(value: '0.', type: type);
+      final valueField = NumberValueField(value: '0.');
       valueFields.add(valueField);
     }
   }
 
   _processOperation(OperationsType value, ButtonType type) {
     if (valueFields.isEmpty) {
-      final valueField = NumberValueField(value: '0', type: ButtonType.number);
+      final valueField = NumberValueField(value: '0');
       valueFields.add(valueField);
 
       _addOperation(value);
@@ -168,10 +169,7 @@ abstract class DefaultControllerBase with Store {
 
   _processFinish() {
     valueFields.clear();
-    final valueField = NumberValueField(
-      value: resultText,
-      type: ButtonType.number,
-    );
+    final valueField = NumberValueField(value: resultText);
     valueFields.add(valueField);
   }
 
@@ -187,8 +185,11 @@ abstract class DefaultControllerBase with Store {
       return;
     }
 
+    final calculateMultiplyDivideValues = CalculateMultiplyDivideValuesImpl();
+    final values = calculateMultiplyDivideValues(valueFields.toList(), value);
+
     final calculatePlusMinusValuesCase = CalculatePlusMinusValuesCaseImpl();
-    value = calculatePlusMinusValuesCase(valueFields.toList(), value);
+    value = calculatePlusMinusValuesCase(values, value);
     resultText = value.toString();
   }
 }

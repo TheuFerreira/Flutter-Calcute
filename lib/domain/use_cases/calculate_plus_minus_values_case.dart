@@ -10,6 +10,8 @@ class CalculatePlusMinusValuesCaseImpl implements CalculatePlusMinusValuesCase {
   @override
   double call(List<ValueFieldBase> valueFields, double value) {
     int i = 2;
+
+    value = double.parse(valueFields[0].value);
     while (i < valueFields.length) {
       final operation = valueFields[i - 1] as OperationValueField;
       final number = valueFields[i];
