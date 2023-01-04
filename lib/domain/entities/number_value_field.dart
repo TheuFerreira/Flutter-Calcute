@@ -9,6 +9,11 @@ abstract class NumberValueFieldBase extends ValueField with Store {
   num get valueNumber => double.parse(value);
 
   @action
+  void updateText(dynamic value) {
+    this.value = value.toString();
+  }
+
+  @action
   void addToText(dynamic value) {
     this.value += value.toString();
   }

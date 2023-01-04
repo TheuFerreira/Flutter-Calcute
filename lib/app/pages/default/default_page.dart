@@ -102,9 +102,9 @@ class _DefaultPageState extends State<DefaultPage> {
                         ),
                         ActionButtonComponent(
                           icon: FontAwesomeIcons.percent,
-                          type: ButtonType.operation,
+                          type: ButtonType.percent,
                           result: null,
-                          onTap: (value, type) {},
+                          onTap: controller.onTapButton,
                         ),
                         ActionButtonComponent(
                           icon: divideIcon,
@@ -249,7 +249,7 @@ class _DefaultPageState extends State<DefaultPage> {
   }
 }
 
-enum ButtonType { number, comma, operation, clear, delete, finish }
+enum ButtonType { number, comma, operation, clear, delete, finish, percent }
 
 enum OperationsType {
   plus,

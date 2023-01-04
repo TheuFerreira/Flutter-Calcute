@@ -4,6 +4,7 @@ import 'package:flutter_calculadora_rosa/domain/entities/number_value_field.dart
 import 'package:flutter_calculadora_rosa/domain/entities/operation_value_field.dart';
 import 'package:flutter_calculadora_rosa/domain/entities/value_field.dart';
 import 'package:flutter_calculadora_rosa/domain/use_cases/calculate_multiply_divide_values.dart';
+import 'package:flutter_calculadora_rosa/domain/use_cases/calculate_percent_value_case.dart';
 import 'package:flutter_calculadora_rosa/domain/use_cases/calculate_plus_minus_values_case.dart';
 import 'package:mobx/mobx.dart';
 
@@ -32,6 +33,11 @@ abstract class DefaultControllerBase with Store {
       _processDelete();
     } else if (type == ButtonType.finish) {
       _processFinish();
+    } else if (type == ButtonType.percent) {
+      final newValueFields =
+          CalculatePercentValueCaseImpl()(valueFields.toList());
+      valueFields.clear();
+      valueFields.addAll(newValueFields);
     }
 
     _process();

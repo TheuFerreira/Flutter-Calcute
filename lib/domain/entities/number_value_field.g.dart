@@ -13,6 +13,17 @@ mixin _$NumberValueField on NumberValueFieldBase, Store {
       ActionController(name: 'NumberValueFieldBase', context: context);
 
   @override
+  void updateText(dynamic value) {
+    final _$actionInfo = _$NumberValueFieldBaseActionController.startAction(
+        name: 'NumberValueFieldBase.updateText');
+    try {
+      return super.updateText(value);
+    } finally {
+      _$NumberValueFieldBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void addToText(dynamic value) {
     final _$actionInfo = _$NumberValueFieldBaseActionController.startAction(
         name: 'NumberValueFieldBase.addToText');
