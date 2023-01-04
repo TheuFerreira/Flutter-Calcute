@@ -98,12 +98,7 @@ class _DefaultPageState extends State<DefaultPage> {
                           type: ButtonType.clear,
                           result: null,
                           onTap: controller.onTapButton,
-                        ),
-                        ActionButtonComponent(
-                          text: '(  )',
-                          type: ButtonType.operation,
-                          result: null,
-                          onTap: (value, type) {},
+                          flex: 2,
                         ),
                         ActionButtonComponent(
                           icon: FontAwesomeIcons.percent,

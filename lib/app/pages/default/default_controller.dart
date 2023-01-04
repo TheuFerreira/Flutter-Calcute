@@ -13,7 +13,7 @@ class DefaultController = DefaultControllerBase with _$DefaultController;
 
 abstract class DefaultControllerBase with Store {
   @observable
-  String resultText = '';
+  String resultText = '0';
 
   @observable
   ObservableList<ValueField> valueFields = ObservableList();

@@ -6,6 +6,7 @@ class ActionButtonComponent extends StatelessWidget {
   final IconData? icon;
   final ButtonType type;
   final dynamic result;
+  final int flex;
   final void Function(dynamic value, ButtonType type)? onTap;
   const ActionButtonComponent({
     super.key,
@@ -14,12 +15,14 @@ class ActionButtonComponent extends StatelessWidget {
     this.onTap,
     required this.type,
     required this.result,
+    this.flex = 1,
   });
 
   @override
   Widget build(BuildContext context) {
     final isText = icon == null;
     return Expanded(
+      flex: flex,
       child: Padding(
         padding: const EdgeInsets.all(4.0),
         child: ElevatedButton(
