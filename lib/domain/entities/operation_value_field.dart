@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_calculadora_rosa/domain/entities/value_field.dart';
 import 'package:mobx/mobx.dart';
-import 'package:flutter_calculadora_rosa/app/pages/default/default_page.dart';
+import 'package:flutter_calculadora_rosa/domain/enums/operations_type.dart';
 
 part 'operation_value_field.g.dart';
 

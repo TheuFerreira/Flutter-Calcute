@@ -3,6 +3,8 @@ import 'package:flutter_calculadora_rosa/app/pages/default/components/action_but
 import 'package:flutter_calculadora_rosa/app/pages/default/default_controller.dart';
 import 'package:flutter_calculadora_rosa/app/utils/default_icons.dart';
 import 'package:flutter_calculadora_rosa/domain/entities/number_value_field.dart';
+import 'package:flutter_calculadora_rosa/domain/enums/button_type.dart';
+import 'package:flutter_calculadora_rosa/domain/enums/operations_type.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -247,13 +249,4 @@ class _DefaultPageState extends State<DefaultPage> {
       ),
     );
   }
-}
-
-enum ButtonType { number, comma, operation, clear, delete, finish, percent }
-
-enum OperationsType {
-  plus,
-  minus,
-  multiply,
-  divide,
 }

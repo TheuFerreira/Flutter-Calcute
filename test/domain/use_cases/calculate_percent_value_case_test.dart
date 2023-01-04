@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_calculadora_rosa/app/pages/default/default_page.dart';
 import 'package:flutter_calculadora_rosa/domain/entities/number_value_field.dart';
 import 'package:flutter_calculadora_rosa/domain/entities/operation_value_field.dart';
 import 'package:flutter_calculadora_rosa/domain/entities/value_field.dart';
+import 'package:flutter_calculadora_rosa/domain/enums/operations_type.dart';
 import 'package:flutter_calculadora_rosa/domain/use_cases/calculate_percent_value_case.dart';
 import 'package:flutter_test/flutter_test.dart';
 

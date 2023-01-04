@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_calculadora_rosa/app/pages/default/default_page.dart';
+import 'package:flutter_calculadora_rosa/domain/enums/button_type.dart';
 
 class ActionButtonComponent extends StatelessWidget {
   final String? text;
