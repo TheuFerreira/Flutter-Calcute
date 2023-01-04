@@ -6,9 +6,10 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Calcute',
-      home: DefaultPage(),
+      theme: ThemeData(fontFamily: 'Glory'),
+      home: const DefaultPage(),
     );
   }
 }
